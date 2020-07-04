@@ -10,15 +10,7 @@ class Persona {
 	}
 	
 	method infectarse() {
-		//const diaDeContagio = simulacion.diaActual()
-		return simulacion.debeInfectarsePersona(self, manzana.cantidadContagiadores())
-	}
-
-	method posibilidadDeContagio(){
-		if (not self.respetaLaCuarentena()){
-		return simulacion.tomarChance(2)
-		}
-		else { return simulacion.tomarChance(25)}
+		return  
 	}
 	
 	method tieneSintomas(){
