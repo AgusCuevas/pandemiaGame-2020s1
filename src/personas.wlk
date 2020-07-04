@@ -6,11 +6,11 @@ class Persona {
 	var property respetaLaCuarentena = false
 	
 	method estaInfectada() {
-		return self.infectarse()
+
 	}
 	
 	method infectarse() {
-		return  
+ 
 	}
 	
 	method tieneSintomas(){
