@@ -24,12 +24,12 @@ class Manzana {
 	}
 	
 	method personaSeMudaA(persona, manzanaDestino) {
-		// implementar
+		self.personas().remove(persona)
+		manzanaDestino.personas().add(persona)
 	}
 	
 	method cantidadContagiadores() {
-		return 0
-		// reemplazar por la cantidad de personas infectadas que no estan aisladas
+		return personas.filter({ persona => persona.estaInfectada()})
 	}
 	
 	method noInfectades() {
@@ -54,5 +54,13 @@ class Manzana {
 			const destino = simulacion.manzanas().filter({ manz => self.esManzanaVecina(manz) }).anyOne()
 			self.personaSeMudaA(viajero, destino)			
 		}
+	}
+	
+	method cuantaGenteVive(){
+		return personas.size()
+	}
+	
+	method personasInfectadasYNoAisladas(){
+		return self.cantidadContagiadores().count({ persona => not persona.estaAislada()})
 	}
 }
