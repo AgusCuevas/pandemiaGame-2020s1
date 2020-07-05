@@ -21,11 +21,6 @@ object simulacion {
 	 * if (simulacion.tomarChance(30)) { ... } 
 	 */ 	
 	 
-	method probabilidadDeInfeccion() {
-		
-		
-	}
-	 
 	method tomarChance(porcentaje) = 0.randomUpTo(100) < porcentaje
 
 	method agregarManzana(manzana) { manzanas.add(manzana) }
@@ -42,5 +37,25 @@ object simulacion {
 		const nuevaManzana = new Manzana()
 		// agregar la cantidad de personas segun self.personasPorManzana()
 		return nuevaManzana
+	}
+	
+	method totalDePersonas(){
+		return manzanas.sum({ manzana => manzana.cuantaGenteVive()})
+	}
+	
+	method totalDeInfectados(){
+		return manzanas.sum({ manzana => manzana.cantidadContagiadores()})
+	}
+	
+	method totalDePersonasConSintomas(){
+		return manzanas.sum({ manzana => manzana.personasConSintomas()})
+	}
+	
+	method agregarPersonaAUnaManzanaAlAzar(persona){
+		if (manzanas.isEmpty()) { return self.error("No hay manzanas")}
+		else{
+			manzanas.get(0.randomUpTo(manzanas.size())).add(persona)
+		}
+		
 	}
 }
