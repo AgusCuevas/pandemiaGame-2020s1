@@ -1,6 +1,9 @@
 import personas.*
 import manzanas.*
 
+
+
+//// algo
 object simulacion {
 	var property diaActual = 0
 	const property manzanas = []
@@ -17,6 +20,12 @@ object simulacion {
 	 * p.ej. si quiero que algo pase con 30% de probabilidad pongo
 	 * if (simulacion.tomarChance(30)) { ... } 
 	 */ 	
+	 
+	method probabilidadDeInfeccion() {
+		
+		
+	}
+	 
 	method tomarChance(porcentaje) = 0.randomUpTo(100) < porcentaje
 
 	method agregarManzana(manzana) { manzanas.add(manzana) }
