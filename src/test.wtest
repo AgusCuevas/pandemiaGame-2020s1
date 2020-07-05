@@ -1,0 +1,22 @@
+import manzanas.*
+import personas.*
+import simulacion.*
+import wollok.game.*
+
+describe{
+	const persona1 = new Persona(estaAislada = false, respetaCuarentena = true, estaInfectada = false)
+	const persona2 = new Persona(estaAislada = true, respetaCuarentena = false, estaInfectada = false)
+	const persona3 = new Persona(estaAislada = false, respetaCuarentena = true, estaInfectada = false)
+	const persona6 = new Persona(estaAislada = true, respetaCuarentena = true, estaInfectada = false)
+	const persona7 = new Persona(estaAislada = false, respetaCuarentena = true, estaInfectada = false)
+	const persona8 = new Persona(estaAislada = true, respetaCuarentena = true, estaInfectada = false)
+	const persona4 = new Persona(estaAislada = false, respetaCuarentena = true, estaInfectada = true)
+	const persona5 = new Persona(estaAislada = false, respetaCuarentena = false, estaInfectada = true)
+	const manzana1 = new Manzana(personas = [persona1, persona2, persona3, persona4, persona5], position = game.at(3,3))
+
+	test "manzana" {
+
+	assert.equals([], manzana1.quienesDebenContagiarse())
+
+}
+}
