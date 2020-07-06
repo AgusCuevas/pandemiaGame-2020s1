@@ -9,8 +9,12 @@ class Manzana {
 	method image() {
 		// reeemplazarlo por los distintos colores de acuerdo a la cantidad de infectados
 		// también vale reemplazar estos dibujos horribles por otros más lindos
-		return "blanco.png"
-	}
+		if (self.cantidadContagiadores() ==  0) {return "blanco.png"}
+		if (self.cantidadContagiadores().between(1,3)) {return "amarillo.png"}	
+		if (self.cantidadContagiadores().between(4,7)) {return "naranja.png"}	
+		if (self.cantidadContagiadores().between(self.cantidadContagiadores() > 7, self.cuantaGenteVive())) {return "naranjaOscuro.png"}
+		else { return "rojo.png"}
+		}	
 	
 	// este les va a servir para el movimiento
 	method esManzanaVecina(manzana) {
@@ -74,5 +78,9 @@ class Manzana {
 	
 	method contagiarAQuienesDeben(){
 		self.quienesDebenContagiarse().forEach({ persona => persona.infectarse() })
+	}
+	
+	method personasConSintomas(){
+		return personas.count({ persona => persona.tieneSintomas()})
 	}
 }
