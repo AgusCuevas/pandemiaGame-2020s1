@@ -5,7 +5,7 @@ class Persona {
 	var property estaAislada = false
 	var property respetaCuarentena = false
 	var diaDeContagio = null
-	var estaInfectada = false
+	var property estaInfectada = false
 	
 	method estaInfectada() {
 		return estaInfectada
@@ -30,7 +30,7 @@ class Persona {
 }
 
 class PersonaDelExterior inherits Persona{
-
+	
     override method estaInfectada() { return true }
 	
 	override method tieneSintomas() { return false}

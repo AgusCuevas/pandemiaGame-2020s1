@@ -1,6 +1,6 @@
 import personas.*
 import manzanas.*
-
+import wollok.game.*
 
 
 
@@ -34,10 +34,25 @@ object simulacion {
 	}
 
 	method crearManzana() {
-		const nuevaManzana = new Manzana()
-		// agregar la cantidad de personas segun self.personasPorManzana()
+		const nuevaManzana = new Manzana(personas = [self.crearPersonasEnManzana()], position = game.at(0,0))
 		return nuevaManzana
 	}
+	
+	method crearPersona(){
+		const nuevaPersona = new Persona()
+		return nuevaPersona
+		}
+	
+	method crearPersonasEnManzana(){
+		var cantidadDeRepe = 0
+		const personasEnManzana = []
+		if (cantidadDeRepe != personasPorManzana){
+			personasEnManzana.add(self.crearPersona())
+			cantidadDeRepe += 1
+		}
+		return personasEnManzana
+	}
+	
 	
 	method totalDePersonas(){
 		return manzanas.sum({ manzana => manzana.cuantaGenteVive()})
