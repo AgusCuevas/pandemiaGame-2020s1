@@ -22,6 +22,11 @@ class Persona {
 		}
 		else {}
 	}
+	
+	method respetarCuarentena(){
+		self.estaAislada(true)
+		self.respetaCuarentena(true)
+	}
 }
 
 class PersonaDelExterior inherits Persona{

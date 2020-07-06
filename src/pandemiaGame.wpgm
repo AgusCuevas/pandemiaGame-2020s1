@@ -1,5 +1,6 @@
 import wollok.game.*
 import simulacion.*
+import agenteDeSalud.*
 
 object pandemiaGameConfig {
 	method height() = 4
@@ -30,10 +31,25 @@ object pandemiaGameConfig {
 		})
 	}
 	
+	// agrego al agente de salud
+	method game.addVisual(agenteSalud)
+	// movimientos
+	keyboard.right().onPressDo{agenteSalud.moverseALaDerecha()}
+	keyboard.left().onPressDo{agenteSalud.moverseALaIzq()}	
+	keyboard.up().onPressDo{agenteSalud.moverseArriba()}
+	keyboard.down().onPressDo{agenteSalud.moverseAbajo()}
+	// aisla a las personas infectadas de la manzana en la que se encuantra
+	keyboard.a().onPressDo{agenteSalud.aislarATodesDeEstaManzana()}
+	// todos respetan la cuarentena
+	keyboard.b().onPressDo{agenteSalud.respetarCuarentena()}
+	
 }
 
 program pandemiaGame {
 	pandemiaGameConfig.configureGame()
 	game.start()
+	
+	
+	
 }
 
