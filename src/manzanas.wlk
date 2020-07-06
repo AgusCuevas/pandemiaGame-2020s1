@@ -75,4 +75,9 @@ class Manzana {
 	method contagiarAQuienesDeben(){
 		self.quienesDebenContagiarse().forEach({ persona => persona.infectarse() })
 	}
+	
+	// aisla a todos en esta manzana 
+	method queTodosRespetenLaCuarentena(){
+		personas.forEach({p => p.respetarCuarentena()}) // adaotar el codigo segun nico R
+	}
 }

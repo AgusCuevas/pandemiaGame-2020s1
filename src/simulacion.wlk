@@ -3,7 +3,7 @@ import manzanas.*
 
 
 
-//// algo
+
 object simulacion {
 	var property diaActual = 0
 	const property manzanas = []
@@ -52,10 +52,9 @@ object simulacion {
 	}
 	
 	method agregarPersonaAUnaManzanaAlAzar(persona){
-		if (manzanas.isEmpty()) { return self.error("No hay manzanas")}
+		if (manzanas.isEmpty()) { self.error("No hay manzanas")}
 		else{
 			manzanas.get(0.randomUpTo(manzanas.size())).add(persona)
 		}
-		
 	}
 }
