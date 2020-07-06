@@ -15,14 +15,14 @@ object agenteSalud {
 
 	// 1.aislar a todes les infectades con síntomas.
 	method aislarATodesDeEstaManzana(){
-		var manzanaEnLaQueEstoy = game.colliders()
+		var manzanaEnLaQueEstoy = game.colliders(self)
 		if (manzanaEnLaQueEstoy.personasInfectadasYNoAisladas()>0){
 			manzanaEnLaQueEstoy.aislarATodosLosInfectadosConSintomas() //crear el metodo en manzana
 		}
 	}
 	// 2.convencer a todes a que respeten la cuarentena.
 	method respetarCuarentena(){
-		var manzanaEnLaQueEstoy = game.colliders()
+		var manzanaEnLaQueEstoy = game.colliders(self)
 		manzanaEnLaQueEstoy.queTodosRespetenLaCuarentena() 
 	}
 

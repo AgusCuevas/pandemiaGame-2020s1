@@ -79,14 +79,12 @@ class Manzana {
 	method contagiarAQuienesDeben(){
 		self.quienesDebenContagiarse().forEach({ persona => persona.infectarse() })
 	}
-	
-<<<<<<< HEAD
+
 	method personasConSintomas(){
 		return personas.count({ persona => persona.tieneSintomas()})
-=======
-	// aisla a todos en esta manzana 
+		}
+
 	method queTodosRespetenLaCuarentena(){
 		personas.forEach({p => p.respetarCuarentena()}) // adaotar el codigo segun nico R
->>>>>>> 3afc3292685f748fc042cf5f4c360c67873c810c
 	}
 }

@@ -32,7 +32,8 @@ object pandemiaGameConfig {
 	}
 	
 	// agrego al agente de salud
-	method game.addVisual(agenteSalud)
+	method entraAgenteDeSalud(){
+	game.addVisual(agenteSalud)
 	// movimientos
 	keyboard.right().onPressDo{agenteSalud.moverseALaDerecha()}
 	keyboard.left().onPressDo{agenteSalud.moverseALaIzq()}	
@@ -42,14 +43,13 @@ object pandemiaGameConfig {
 	keyboard.a().onPressDo{agenteSalud.aislarATodesDeEstaManzana()}
 	// todos respetan la cuarentena
 	keyboard.b().onPressDo{agenteSalud.respetarCuarentena()}
-	
+	}
 }
+
 
 program pandemiaGame {
 	pandemiaGameConfig.configureGame()
 	game.start()
-	
-	
 	
 }
 
