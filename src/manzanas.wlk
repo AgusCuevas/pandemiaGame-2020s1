@@ -20,11 +20,16 @@ class Manzana {
 	method esManzanaVecina(manzana) {
 		return manzana.position().distance(position) == 1
 	}
+	
 
 	method pasarUnDia() {
 		self.transladoDeUnHabitante()
 		self.simulacionContagiosDiarios()
-		// despues agregar la curacion
+		// despues agregar la curacion 
+		
+		simulacion.diaActual(){
+			diaActual += 1
+		}
 	}
 	
 	method personaSeMudaA(persona, manzanaDestino) {
@@ -92,5 +97,15 @@ class Manzana {
 	// ejecucion 1 del del agente
 	method aislarATodosLosInfectadosConSintomas(){
 		self.personasInfectadasYNoAisladas().forEach({ per => per.estaAislada(true)})
+	}
+	
+	method crearUnaPersona(){
+		const nuevaPersona = new Persona()
+		return nuevaPersona
+	}
+	
+	method crearPersonasEnEstaManzana(){
+		(0..9).forEach({ i =>
+			personas.add(self.crearUnaPersona())})
 	}
 }

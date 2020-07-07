@@ -16,11 +16,17 @@ class Persona {
 		estaInfectada = true
 	}
 	
+	method haceCuantoEstaInfectado(){
+		return simulacion.diaActual() - diaDeContagio
+	}
+	
 	method tieneSintomas(){
-		return if (self.estaInfectada()){
-			simulacion.tomarChance(30) 
+		if (self.estaInfectada()){
+			return simulacion.tomarChance(30) 
 		}
-		else {}
+		else {
+			return false
+		}
 	}
 	
 	method respetarCuarentena(){

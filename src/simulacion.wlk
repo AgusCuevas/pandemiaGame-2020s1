@@ -34,25 +34,9 @@ object simulacion {
 	}
 
 	method crearManzana() {
-		const nuevaManzana = new Manzana(personas = [self.crearPersonasEnManzana()], position = game.at(0,0))
+		const nuevaManzana = new Manzana(personas = [], position = game.at(0,0))
 		return nuevaManzana
 	}
-	
-	method crearPersona(){
-		const nuevaPersona = new Persona()
-		return nuevaPersona
-		}
-	
-	method crearPersonasEnManzana(){
-		var cantidadDeRepe = 0
-		const personasEnManzana = []
-		if (cantidadDeRepe != personasPorManzana){
-			personasEnManzana.add(self.crearPersona())
-			cantidadDeRepe += 1
-		}
-		return personasEnManzana
-	}
-	
 	
 	method totalDePersonas(){
 		return manzanas.sum({ manzana => manzana.cuantaGenteVive()})
@@ -69,7 +53,18 @@ object simulacion {
 	method agregarPersonaAUnaManzanaAlAzar(persona){
 		if (manzanas.isEmpty()) { self.error("No hay manzanas")}
 		else{
-			manzanas.get(0.randomUpTo(manzanas.size())).add(persona)
+			self.unaManzanaAlAzar().add(persona)
 		}
 	}
+		
+	method unaManzanaAlAzar(){
+		return manzanas.get(0.randomUpTo(manzanas.size()))
+	}
+	
+	method llenarTodasLasManzanas(){
+		manzanas.forEach({ manza =>	manza.crearPersonasEnEstaManzana()})
+	}
+	
+	
+	
 }
