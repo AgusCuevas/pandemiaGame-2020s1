@@ -24,7 +24,6 @@ class Persona {
 	}
 	
 	method respetarCuarentena(){
-		self.estaAislada(true)
 		self.respetaCuarentena(true)
 	}
 }

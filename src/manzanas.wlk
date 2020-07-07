@@ -83,8 +83,14 @@ class Manzana {
 	method personasConSintomas(){
 		return personas.count({ persona => persona.tieneSintomas()})
 		}
-
+		
+	// ejecucion 2 del del agente
 	method queTodosRespetenLaCuarentena(){
-		personas.forEach({p => p.respetarCuarentena()}) // adaotar el codigo segun nico R
+		personas.forEach({p => p.respetarCuarentena()}) 
+	}
+	
+	// ejecucion 1 del del agente
+	method aislarATodosLosInfectadosConSintomas(){
+		self.personasInfectadasYNoAisladas().forEach({ per => per.estaAislada(true)})
 	}
 }

@@ -5,7 +5,7 @@ import personas.*
 
 
 object agenteSalud {
-	var property position = game.at(1,1)
+	var property position = game.at(0,0)
 	var property image = "agenteDeSalud.png"
 	
 	method respetarLaCuarentena(persona){
@@ -17,7 +17,7 @@ object agenteSalud {
 	method aislarATodesDeEstaManzana(){
 		var manzanaEnLaQueEstoy = game.colliders(self)
 		if (manzanaEnLaQueEstoy.personasInfectadasYNoAisladas()>0){
-			manzanaEnLaQueEstoy.aislarATodosLosInfectadosConSintomas() //crear el metodo en manzana
+			manzanaEnLaQueEstoy.aislarATodosLosInfectadosConSintomas()
 		}
 	}
 	// 2.convencer a todes a que respeten la cuarentena.

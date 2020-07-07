@@ -31,11 +31,6 @@ object pandemiaGameConfig {
 		})
 	}
 	
-	
-	
-
-
-	
 }
 
 
@@ -43,16 +38,17 @@ program pandemiaGame {
 	pandemiaGameConfig.configureGame()
 	
 	// agrego al agente de salud
-	game.addVisual(agenteSalud)
+	keyboard.a().onPressDo{game.addVisual(agenteSalud)}
+	
 	// movimientos
 	keyboard.right().onPressDo{agenteSalud.moverseALaDerecha()}
 	keyboard.left().onPressDo{agenteSalud.moverseALaIzq()}	
 	keyboard.up().onPressDo{agenteSalud.moverseArriba()}
 	keyboard.down().onPressDo{agenteSalud.moverseAbajo()}
 	// aisla a las personas infectadas de la manzana en la que se encuantra
-	keyboard.a().onPressDo{agenteSalud.aislarATodesDeEstaManzana()}
+	keyboard.s().onPressDo{agenteSalud.aislarATodesDeEstaManzana()}
 	// todos respetan la cuarentena
-	keyboard.b().onPressDo{agenteSalud.respetarCuarentena()}
+	keyboard.d().onPressDo{agenteSalud.respetarCuarentena()}
 	
 	game.start()
 	
