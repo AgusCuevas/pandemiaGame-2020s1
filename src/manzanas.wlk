@@ -109,7 +109,7 @@ class Manzana {
 	
 	method curacion(){
 		personas.forEach({ persona => persona.sumarUnDiaRespetado()})
-		personas.filter({ persona => persona.diasRespetandoCuarentena() == 20}).
+		personas.filter({ persona => persona.diasRespetados() == 20}).
 			forEach({ persona => persona.estaInfectada(false)})
 	}
 }
