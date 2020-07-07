@@ -5,7 +5,7 @@ import personas.*
 
 
 object agenteSalud {
-	var property position = game.at(0,0)
+	var property position = game.at(1,1)
 	var property image = "agenteDeSalud.png"
 	
 	method respetarLaCuarentena(persona){
