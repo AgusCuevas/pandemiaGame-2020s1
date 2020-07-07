@@ -65,6 +65,9 @@ object simulacion {
 		manzanas.forEach({ manza =>	manza.crearPersonasEnEstaManzana()})
 	}
 	
+	method sumarUnDia(){
+		diaActual += 1
+	}
 	
 	
 }

@@ -6,10 +6,7 @@ class Persona {
 	var property respetaCuarentena = false
 	var diaDeContagio = null
 	var property estaInfectada = false
-	
-	method estaInfectada() {
-		return estaInfectada
-	}
+	var property diasRespetados = 0
 	
 	method infectarse() {
 		diaDeContagio = simulacion.diaActual()
@@ -31,6 +28,12 @@ class Persona {
 	
 	method respetarCuarentena(){
 		self.respetaCuarentena(true)
+	}
+	
+	method sumarUnDiaRespetado(){
+		if (self.respetaCuarentena() and self.estaInfectada()){
+				diasRespetados += 1
+			}
 	}
 }
 

@@ -26,10 +26,8 @@ class Manzana {
 		self.transladoDeUnHabitante()
 		self.simulacionContagiosDiarios()
 		// despues agregar la curacion 
-		
-		simulacion.diaActual(){
-			diaActual += 1
-		}
+		simulacion.sumarUnDia()
+		self.curacion()
 	}
 	
 	method personaSeMudaA(persona, manzanaDestino) {
@@ -107,5 +105,11 @@ class Manzana {
 	method crearPersonasEnEstaManzana(){
 		(0..9).forEach({ i =>
 			personas.add(self.crearUnaPersona())})
+	}
+	
+	method curacion(){
+		personas.forEach({ persona => persona.sumarUnDiaRespetado()})
+		personas.filter({ persona => persona.diasRespetandoCuarentena() == 20}).
+			forEach({ persona => persona.estaInfectada(false)})
 	}
 }
