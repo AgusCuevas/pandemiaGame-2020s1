@@ -102,7 +102,7 @@ class Manzana {
 	}
 	
 	method crearPersonasEnEstaManzana(){
-		(0..9).forEach({ i =>
+		(0..simulacion.personasPorManzana() - 1).forEach({ i =>
 			personas.add(self.crearUnaPersona())})
 	}
 	

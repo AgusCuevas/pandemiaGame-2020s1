@@ -35,6 +35,7 @@ object simulacion {
 
 	method crearManzana() {
 		const nuevaManzana = new Manzana(personas = [], position = game.at(0,0))
+			nuevaManzana.crearPersonasEnEstaManzana()
 		return nuevaManzana
 	}
 	
