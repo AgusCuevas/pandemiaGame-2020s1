@@ -51,10 +51,10 @@ object simulacion {
 		return manzanas.sum({ manzana => manzana.personasConSintomas()})
 	}
 	
-	method agregarPersonaAUnaManzanaAlAzar(persona){
+	method agregarPersonaAUnaManzanaAlAzar(){
 		if (manzanas.isEmpty()) { self.error("No hay manzanas")}
 		else{
-			self.unaManzanaAlAzar().add(persona)
+			self.unaManzanaAlAzar().personas().add(new PersonaDelExterior())
 		}
 	}
 

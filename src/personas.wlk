@@ -39,7 +39,7 @@ class Persona {
 
 class PersonaDelExterior inherits Persona{
 	
-    override method estaInfectada() { return true }
+    var property estaInfectada = true
 	
 	override method tieneSintomas() { return false}
 	}
