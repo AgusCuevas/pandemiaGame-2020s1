@@ -12,7 +12,7 @@ class Manzana {
 		if (self.cantidadContagiadores() ==  0) {return "blanco.png"}
 		if (self.cantidadContagiadores().between(1,3)) {return "amarillo.png"}	
 		if (self.cantidadContagiadores().between(4,7)) {return "naranja.png"}	
-		if (self.cantidadContagiadores().between(self.cantidadContagiadores() > 7, self.cuantaGenteVive())) {return "naranjaOscuro.png"}
+		if (self.cantidadContagiadores() > 7  and self.cantidadContagiadores() < self.cuantaGenteVive()) {return "naranjaOscuro.png"}
 		else { return "rojo.png"}
 		}	
 	
