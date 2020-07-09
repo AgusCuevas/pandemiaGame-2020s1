@@ -49,9 +49,12 @@ program pandemiaGame {
 	keyboard.s().onPressDo{agenteSalud.aislarATodesDeEstaManzana()}
 	// todos respetan la cuarentena
 	keyboard.d().onPressDo{agenteSalud.respetarCuarentena()}
+	// pasar un dia 
+	keyboard.space().onPressDo{simulacion.todasPasanUnDia()}
+	keyboard.e().onPressDo{game.say(agenteSalud, "Dia: " + simulacion.diaActual() + " Total de personas: " +
+		simulacion.totalDePersonas() + " Infectados: " + simulacion. totalDeInfectados() + " Personas con sintomas: " +
+			simulacion.totalDePersonasConSintomas())}
 	
 	game.start()
-	
-
 }
 

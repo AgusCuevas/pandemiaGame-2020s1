@@ -56,7 +56,7 @@ object simulacion {
 			self.unaManzanaAlAzar().add(persona)
 		}
 	}
-		
+
 	method unaManzanaAlAzar(){
 		return manzanas.get(0.randomUpTo(manzanas.size()))
 	}
@@ -69,5 +69,8 @@ object simulacion {
 		diaActual += 1
 	}
 	
-	
+	method todasPasanUnDia(){
+		manzanas.forEach({ manzana => manzana.pasarUnDia()})
+		self.sumarUnDia()
+	}
 }
