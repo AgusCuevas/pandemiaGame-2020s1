@@ -70,12 +70,9 @@ class Manzana {
 		return self.cantidadContagiadores().count({ persona => not persona.estaAislada()})
 	}
 	
-	method personasNoInfectadas(){
-		return personas.filter({ persona => not persona.estaInfectada()})
-	}
 	
 	method quienesDebenContagiarse(){
-		return self.personasNoInfectadas().filter({ persona => simulacion.debeInfectarsePersona(persona, self.cantidadContagiadores())})
+		return self.noInfectades().filter({ persona => simulacion.debeInfectarsePersona(persona, self.cantidadContagiadores())})
 	}
 	
 	method contagiarAQuienesDeben(){
@@ -108,7 +105,10 @@ class Manzana {
 	
 	method curacion(){
 		personas.forEach({ persona => persona.sumarUnDiaRespetado()})
-		personas.filter({ persona => persona.diasRespetados() == 20}).
-			forEach({ persona => persona.estaInfectada(false)})
+		self.personasQueRespetaron20().forEach({ persona => persona.estaInfectada(false)})
 	}
+
+	 method personasQueRespetaron20(){
+	 	return personas.filter({ persona => persona.diasRespetados() == 20})
+	 }
 }
