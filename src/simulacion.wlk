@@ -75,4 +75,12 @@ object simulacion {
 		manzanas.forEach({ manzana => manzana.pasarUnDia()})
 		self.sumarUnDia()
 	}
+	
+	method cuantosRespetanLaCuarentena(){
+		return manzanas.sum({personas => personas.respetanCuarentena()})
+	}
+	
+	method cuantosEstanAislados(){
+		return manzanas.sum({personas => personas.estanAislados()})
+	}
 }

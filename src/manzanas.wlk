@@ -115,4 +115,11 @@ class Manzana {
 	 method personasQueRespetaron20(){
 	 	return personas.filter({ persona => persona.diasRespetados() == 20})
 	 }
+	 
+	 method respetanCuarentena(){
+	 	return personas.count({persona => persona.respetaCuarentena()})
+	 }
+	 method estanAislados(){
+	 	return personas.count({persona => persona.estaAislada()})
+	 }
 }

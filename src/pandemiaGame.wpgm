@@ -55,7 +55,8 @@ program pandemiaGame {
 	// consultas del tablero
 	keyboard.e().onPressDo{console.println("Dia: " + simulacion.diaActual() + "," + " Total de personas: " +
 		simulacion.totalDePersonas() + ","  + " Infectados: " + simulacion. totalDeInfectados() + ","  + " Personas con sintomas: " +
-			simulacion.totalDePersonasConSintomas())}
+			simulacion.totalDePersonasConSintomas() + "," + " Respetando cuarentena: " + simulacion.cuantosRespetanLaCuarentena() + "," +
+				 " En aslamiento: " + simulacion.cuantosEstanAislados())}
 	// agregar infectado
 	keyboard.i().onPressDo{simulacion.agregarPersonaAUnaManzanaAlAzar()}	
 	
