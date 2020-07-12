@@ -35,12 +35,16 @@ class Persona {
 				diasRespetados += 1
 			}
 	}
+	
+	method aislar(){
+		self.estaAislada(true)
+	}
 }
 
 class PersonaDelExterior inherits Persona{
 	
-	var property estaInfectada = true
+	override method estaInfectada(){ return true}
 	
 	override method tieneSintomas() { return false}
-	}
+}
 

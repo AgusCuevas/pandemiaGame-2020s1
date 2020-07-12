@@ -10,14 +10,15 @@ object agenteSalud {
 
 	// 1.aislar a todes les infectades con síntomas.
 	method aislarATodesDeEstaManzana(){
-		var manzanaEnLaQueEstoy = game.colliders(self)
-			manzanaEnLaQueEstoy.forEach({g => g.aislarATodosLosInfectadosConSintomas()})
+		var manzanaEnLaQueEstoy = game.uniqueCollider(self)
+        manzanaEnLaQueEstoy.aislarATodosLosInfectadosSinAislar()
+        
 	}
 	
 	// 2.convencer a todes a que respeten la cuarentena.
 	method respetarCuarentena(){
-		var manzanaEnLaQueEstoy = game.colliders(self)
-		manzanaEnLaQueEstoy.forEach({g => g.queTodosRespetenLaCuarentena()})
+		var manzanaEnLaQueEstoy = game.uniqueCollider(self)
+		manzanaEnLaQueEstoy.queTodosRespetenLaCuarentena()
 	}
 	
 

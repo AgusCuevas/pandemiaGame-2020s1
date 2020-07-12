@@ -74,6 +74,9 @@ class Manzana {
 		return self.quinesEstanContagiados().filter({ persona => not persona.estaAislada()})
 	}
 	
+	method cantidadDePersonasInfectadasYNoAisladas(){
+		return self.personasInfectadasYNoAisladas().count()
+	}
 	
 	method quienesDebenContagiarse(){
 		return self.noInfectades().filter({ persona => simulacion.debeInfectarsePersona(persona, self.cantidadContagiadores())})
@@ -93,8 +96,8 @@ class Manzana {
 	}
 	
 	// ejecucion 1 del del agente
-	method aislarATodosLosInfectadosConSintomas(){
-		self.personasInfectadasYNoAisladas().forEach({ per => per.estaAislada(true)})
+	method aislarATodosLosInfectadosSinAislar(){
+		self.personasInfectadasYNoAisladas().forEach({ per => per.aislar()})
 	}
 	
 	method crearUnaPersona(){
