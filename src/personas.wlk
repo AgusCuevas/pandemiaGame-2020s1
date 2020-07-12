@@ -42,9 +42,16 @@ class Persona {
 }
 
 class PersonaDelExterior inherits Persona{
-	
+	const property diaAgregado 
 	override method estaInfectada(){ return true}
 	
-	override method tieneSintomas() { return false}
+	// el primer dia no tiene que tener sintomas, luego si para poder ailarla?
+	override method tieneSintomas() {
+		if (simulacion.diaActual() == diaAgregado){
+			return false
+		} else {
+			return super()
+		}		
+	}
 }
 
