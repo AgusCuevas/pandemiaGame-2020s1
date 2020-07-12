@@ -11,7 +11,7 @@ object agenteSalud {
 	// 1.aislar a todes les infectades con síntomas.
 	method aislarATodesDeEstaManzana(){
 		var manzanaEnLaQueEstoy = game.uniqueCollider(self)
-        manzanaEnLaQueEstoy.aislarATodosLosInfectadosSinAislar()
+        manzanaEnLaQueEstoy.aislarATodosLosInfectadosConSintomas()
         
 	}
 	
