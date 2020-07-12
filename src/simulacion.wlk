@@ -1,6 +1,7 @@
 import personas.*
 import manzanas.*
 import wollok.game.*
+import agenteDeSalud.*
 
 
 

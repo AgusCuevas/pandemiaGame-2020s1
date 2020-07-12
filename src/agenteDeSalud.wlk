@@ -7,24 +7,19 @@ import personas.*
 object agenteSalud {
 	var property position = game.at(0,0)
 	var property image = "agenteDeSalud.png"
-	
-	method respetarLaCuarentena(persona){
-		persona.respetarCuarentena()
-	}
-	
 
 	// 1.aislar a todes les infectades con síntomas.
 	method aislarATodesDeEstaManzana(){
 		var manzanaEnLaQueEstoy = game.colliders(self)
-		if (manzanaEnLaQueEstoy.personasInfectadasYNoAisladas()>0){
-			manzanaEnLaQueEstoy.aislarATodosLosInfectadosConSintomas()
-		}
+			manzanaEnLaQueEstoy.forEach({g => g.aislarATodosLosInfectadosConSintomas()})
 	}
+	
 	// 2.convencer a todes a que respeten la cuarentena.
 	method respetarCuarentena(){
 		var manzanaEnLaQueEstoy = game.colliders(self)
-		manzanaEnLaQueEstoy.queTodosRespetenLaCuarentena() 
+		manzanaEnLaQueEstoy.forEach({g => g.queTodosRespetenLaCuarentena()})
 	}
+	
 
 	// muevo al agente
 	method moverseALaDerecha() {self.position(self.position().right(1))}

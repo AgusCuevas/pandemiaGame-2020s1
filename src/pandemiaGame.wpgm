@@ -1,6 +1,7 @@
 import wollok.game.*
 import simulacion.*
 import agenteDeSalud.*
+import manzanas.*
 
 object pandemiaGameConfig {
 	method height() = 4
@@ -50,10 +51,10 @@ program pandemiaGame {
 	// todos respetan la cuarentena
 	keyboard.d().onPressDo{agenteSalud.respetarCuarentena()}
 	// pasar un dia 
-	keyboard.space().onPressDo{simulacion.todasPasanUnDia()}
+	keyboard.space().onPressDo{simulacion.todasPasanUnDia() console.println("Termino el dia " + simulacion.diaActual())}
 	// consultas del tablero
-	keyboard.e().onPressDo{game.say(agenteSalud, "Dia: " + simulacion.diaActual() + " Total de personas: " +
-		simulacion.totalDePersonas() + " Infectados: " + simulacion. totalDeInfectados() + " Personas con sintomas: " +
+	keyboard.e().onPressDo{console.println("Dia: " + simulacion.diaActual() + "," + " Total de personas: " +
+		simulacion.totalDePersonas() + ","  + " Infectados: " + simulacion. totalDeInfectados() + ","  + " Personas con sintomas: " +
 			simulacion.totalDePersonasConSintomas())}
 	// agregar infectado
 	keyboard.i().onPressDo{simulacion.agregarPersonaAUnaManzanaAlAzar()}	
