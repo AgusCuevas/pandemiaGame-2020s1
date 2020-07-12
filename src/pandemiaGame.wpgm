@@ -51,7 +51,7 @@ program pandemiaGame {
 	// todos respetan la cuarentena
 	keyboard.d().onPressDo{agenteSalud.respetarCuarentena()}
 	// pasar un dia 
-	keyboard.space().onPressDo{simulacion.todasPasanUnDia() console.println("Termino el dia " + simulacion.diaActual())}
+	keyboard.space().onPressDo{simulacion.todasPasanUnDia() console.println("Termino el dia " + (simulacion.diaActual() - 1))}
 	// consultas del tablero
 	keyboard.e().onPressDo{console.println("Dia: " + simulacion.diaActual() + "," + " Total de personas: " +
 		simulacion.totalDePersonas() + ","  + " Infectados: " + simulacion. totalDeInfectados() + ","  + " Personas con sintomas: " +
