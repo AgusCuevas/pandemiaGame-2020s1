@@ -55,7 +55,7 @@ object simulacion {
 	method agregarPersonaAUnaManzanaAlAzar(){
 		if (manzanas.isEmpty()) { self.error("No hay manzanas")}
 		else{
-			self.unaManzanaAlAzar().personas().add(new PersonaDelExterior(diaAgregado = self.diaActual()))
+			self.unaManzanaAlAzar().personas().add(new PersonaDelExterior())
 		}
 	}
 

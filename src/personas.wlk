@@ -4,7 +4,7 @@ import manzanas.*
 class Persona {
 	var property estaAislada = false
 	var property respetaCuarentena = false
-	var diaDeContagio = null
+	var property diaDeContagio = null
 	var property estaInfectada = false
 	var property diasRespetados = 0
 	
@@ -42,12 +42,13 @@ class Persona {
 }
 
 class PersonaDelExterior inherits Persona{
-	const property diaAgregado 
+	const property diaAgregado = simulacion.diaActual()
+	override method diaDeContagio(){ return diaAgregado }
 	override method estaInfectada(){ return true}
 	
 	// el primer dia no tiene que tener sintomas, luego si para poder ailarla?
 	override method tieneSintomas() {
-		if (simulacion.diaActual() == diaAgregado){
+		if (simulacion.diaActual() == self.diaDeContagio()){
 			return false
 		} else {
 			return super()
