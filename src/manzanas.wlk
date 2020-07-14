@@ -78,6 +78,11 @@ class Manzana {
 		return self.personasInfectadasYNoAisladas().filter({ persona => persona.tieneSintomas()})
 	}
 	
+	// ejecucion 1 del del agente
+	method aislarATodosLosInfectadosConSintomas(){
+		self.listaDePersonasInfectadasYNoAisladas_conSintomas().forEach({ per => per.aislar()})
+	}
+	
 		
 	method quienesDebenContagiarse(){
 		return self.noInfectades().filter({ persona => simulacion.debeInfectarsePersona(persona, self.cantidadContagiadores())})
@@ -96,10 +101,6 @@ class Manzana {
 		personas.forEach({p => p.respetarCuarentena()}) 
 	}
 	
-	// ejecucion 1 del del agente
-	method aislarATodosLosInfectadosConSintomas(){
-		self.listaDePersonasInfectadasYNoAisladas_conSintomas().forEach({ per => per.aislar()})
-	}
 	
 	method crearUnaPersona(){
 		const nuevaPersona = new Persona()
@@ -114,6 +115,8 @@ class Manzana {
 	method curacion(){
 		personas.forEach({ persona => persona.sumarUnDiaRespetado()})
 		self.personasQueRespetaron20().forEach({ persona => persona.estaInfectada(false)})
+		self.personasQueRespetaron20().forEach({ persona => persona.diasRespetados(0)})
+		self.personasQueRespetaron20().forEach({ persona => persona.estaAislada(false)})
 	}
 
 	 method personasQueRespetaron20(){

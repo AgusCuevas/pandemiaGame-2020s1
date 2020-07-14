@@ -31,7 +31,7 @@ class Persona {
 	}
 	
 	method sumarUnDiaRespetado(){
-		if (self.respetaCuarentena() and self.estaInfectada()){
+		if (self.estaInfectada()){
 				diasRespetados += 1
 			}
 	}
